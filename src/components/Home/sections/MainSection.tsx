@@ -48,7 +48,7 @@ export default function MainSection() {
                   style={{
                     fontWeight: 'bold',
                     padding: '1rem 2rem',
-                    backgroundColor: '#108A00'
+                    backgroundColor: '#44403C'
                   }}
                 >
                   Learn More <ArrowForwardIosIcon className='ml-2' />
