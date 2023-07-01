@@ -34,7 +34,8 @@ export default function MainSection() {
                   className='bg-[#108A00] text-white hover:bg-[#108A00cc]'
                   style={{
                     fontWeight: 'bold',
-                    padding: '1rem 2rem'
+                    padding: '1rem 2rem',
+                    backgroundColor: '#108A00'
                   }}
                 >
                   Book Now <CheckCircleIcon className='ml-2' />
@@ -46,7 +47,8 @@ export default function MainSection() {
                   className='bg-black hover:bg-transparent hover:border-4 hover:outline-double outline-black border-black hover:text-black text-white'
                   style={{
                     fontWeight: 'bold',
-                    padding: '1rem 2rem'
+                    padding: '1rem 2rem',
+                    backgroundColor: '#108A00'
                   }}
                 >
                   Learn More <ArrowForwardIosIcon className='ml-2' />

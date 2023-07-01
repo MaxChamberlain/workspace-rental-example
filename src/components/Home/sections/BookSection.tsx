@@ -141,7 +141,8 @@ export default function BookSection(){
                 className='bg-[#108A00] text-white text-lg hover:bg-[#108A00cc]'
                 style={{
                   fontWeight: 'bold',
-                  padding: '1rem 2rem'
+                  padding: '1rem 2rem',
+                  backgroundColor: '#108A00'
                 }}
                 fullWidth
                 disabled={!(state && space && hours.length > 0 && selectedDates.length > 0)}
