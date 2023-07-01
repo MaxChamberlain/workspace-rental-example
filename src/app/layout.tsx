@@ -1,16 +1,14 @@
-'use client'
 import Header from '@/components/Header'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import ThemeProvider from './ThemeProvider'
 import MuiXLicense from '@/components/MuiXLicense'
 import Footer from '@/components/Footer'
-import { AnimatePresence } from 'framer-motion'
-import { Metadata } from 'next'
+import { AppWrapper } from '@/components/AppWrapper'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Workspace Rental',
   description: 'Workspace Rental example app',
 }
@@ -26,9 +24,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <Header />
         <ThemeProvider>
-          <AnimatePresence mode='popLayout' onExitComplete={() => window.scrollTo(0, 0)}>
+          <AppWrapper>
             {children}
-          </AnimatePresence>
+          </AppWrapper>
         </ThemeProvider>
         <Footer />
       </body>
