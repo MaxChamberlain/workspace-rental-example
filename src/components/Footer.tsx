@@ -6,7 +6,7 @@ import { Button, TextField } from '@mui/material';
 
 export default function Footer(){
     return(
-        <div className="p-8 flex items-start justify-center bg-white gap-24">
+        <div className="p-8 flex lg:grid grid-cols-2 items-start flex-col 2xl:flex-row justify-center bg-white gap-12 xl:gap-24">
 
             <div className='flex flex-col items-start justify-start gap-8'>
                 <div className='flex h-full justify-between items-start text-xl gap-2'>

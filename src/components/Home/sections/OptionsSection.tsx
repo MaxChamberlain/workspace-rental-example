@@ -6,18 +6,18 @@ import Image from 'next/image'
 export default function OptionsSection(){
     const [ selectedRoom, setSelectedRoom ] = useState(workspaceArray[0])
     return(
-      <section id='info' className='w-full flex flex-col justify-center items-center gap-4 dark:text-stone-100 text-black pb-48'>
-        <span className='font-semibold text-xl'>
+      <section id='info' className='w-full flex flex-col justify-center items-center gap-4 dark:text-stone-100 text-black pb-12 xl:pb-48'>
+        <span className='font-semibold xl:text-xl text-lg text-center'>
             Office Models
         </span>
-        <span className='font-bold text-5xl'>
+        <span className='font-bold 2xl:text-5xl xl:text-3xl text-2xl text-center'>
             Our arsenal
         </span>
-        <span className='text-base text-center max-w-xl'>
+        <span className='text-sm xl:text-base text-center max-w-xs xl:max-w-xl'>
             Choose from a variety of our amazing vehicles to rent for your next adventure or business trip
         </span>
-        <div className='flex justify-between w-full max-w-7xl items-start mt-16 h-fit'>
-            <div className='flex flex-col justify-center items-center gap-2'>
+        <div className='flex justify-between flex-col gap-12 xl:flex-row xl:gap-0 w-full max-w-xl xl:max-w-7xl items-start mt-16 h-fit px-8 xl:px-0'>
+            <div className='flex flex-col justify-center items-center gap-2 w-full xl:w-fit'>
                 {workspaceArray.map((room, index) => (
                     <div key={index} className={`flex flex-col justify-center items-center gap-2 py-4 px-12 rounded-lg cursor-pointer w-full ${selectedRoom === room ? 'bg-[#108A00] text-white' : 'bg-stone-200 text-black'}`} onClick={() => setSelectedRoom(room)}>
                         <span className='font-bold text-xl'>
@@ -26,7 +26,7 @@ export default function OptionsSection(){
                     </div>
                 ))}
             </div>
-            <div className='flex flex-col justify-center items-center gap-2'>
+            <div className='flex-col justify-center items-center gap-2 hidden xl:flex'>
                 <Image
                     src={theMiniImage}
                     alt='The Mini'
@@ -34,7 +34,7 @@ export default function OptionsSection(){
                     height={400}
                 />
             </div>
-            <div className='flex flex-col justify-center items-center border-2 border-[#108A00] h-full'>
+            <div className='flex flex-col justify-center w-full xl:w-fit items-center border-2 border-[#108A00] h-full'>
                 <div className='bg-[#108A00] text-xl py-4 px-16 flex text-white flex-col w-full justify-center items-center gap-4'>
                     ${selectedRoom.hour_price} / cost per hour
                 </div>

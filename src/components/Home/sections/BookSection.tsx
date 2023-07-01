@@ -1,4 +1,4 @@
-import modalBg from '../../../assets/images/bg-modal.png'
+import modalBg from '../../../assets/images/bg-modal.webp'
 import statesArray from '../../../assets/arrays/states.json'
 import workspaceArray from '../../../assets/arrays/workspaceSizes.json'
 import workspaceHours from '../../../assets/arrays/workspaceHours.json'
@@ -26,8 +26,8 @@ export default function BookSection(){
     const [ reservationDialog, setReservationDialog ] = useState(false)
 
     return(
-        <section id='book' className='w-full flex flex-col justify-center items-center gap-6 dark:text-stone-100 text-stone-700 pb-64'>
-        <div className='bg-white drop-shadow-lg p-8 flex flex-col gap-8 w-full max-w-7xl' style={{
+        <section id='book' className='w-full flex flex-col justify-center items-center gap-6 dark:text-stone-100 text-stone-700 px-8 lg:px-0 pb-24 xl:pb-64'>
+        <div className='bg-white drop-shadow-lg p-8 flex flex-col gap-8 w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-5xl xl:max-w-7xl' style={{
           backgroundImage: `url(${modalBg.src})`,
         }}>
           <span className='font-bold text-2xl'>
@@ -36,7 +36,63 @@ export default function BookSection(){
           <span className='text-base -mt-8 text-[#108A00]'>
               Stacking discount for booking multiple hours per day!
           </span>
-          <div className='grid grid-cols-3 gap-12 font-bold'>
+          <div className='lg:grid xl:grid-cols-3 lg:grid-cols-2 flex flex-col gap-4 lg:gap-12 font-bold'>
+            <div className='col-span-2'>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DateRangePicker
+                  value={selectedDates}
+                  onChange={(newValue) => setSelectedDates(newValue)}
+                  slotProps={{ 
+                    textField: { 
+                      variant: 'standard',
+                      title: 'Select Date Range',
+                      label: <div className='flex gap-2 dark:text-stone-100 text-stone-700 font-bold text-[1.3rem]' style={{ fontFamily: 'Poppins' }}>
+                        <CalendarTodayIcon className='text-[#108A00]' /> <span className='block lg:hidden'>Dates</span><span className='hidden lg:block'>Select the Date Range</span> <span className='text-[#108A00]'>*</span>
+                      </div>,
+                      InputProps: {
+                        style: {
+                          paddingTop: '1rem'
+                        }
+                      }
+                    },
+                    fieldSeparator: { children: '' }
+                  }}
+                />
+              </LocalizationProvider>
+            </div>
+            <div className='flex flex-col justify-center items-start space-y-4'>
+              <div className='flex gap-2'>
+                <AccessTimeIcon className='text-[#108A00]' /> Select the Daily Use Hours <span className='text-[#108A00]'>*</span>
+              </div>
+              <Select
+                value={hours}
+                onChange={(e: any) => setHours(e.target.value)}
+                renderValue={(selected: any) => {
+                  let displayValue: string[] = []
+                  workspaceHours.forEach((space: any) => {
+                    if(selected.indexOf(space.id) > -1) {
+                      displayValue.push((space.startTime > 12 ? space.startTime - 12 + ' PM' : space.startTime + ' AM') + ' - ' + (space.endTime > 12 ? space.endTime - 12 + ' PM' : space.endTime + ' AM'))
+                }})
+                  return displayValue.join(', ')
+                }}
+                fullWidth
+                variant='standard'
+                multiple
+              >
+                <MenuItem value=''>
+                  <em>None</em>
+                </MenuItem>
+                {workspaceHours.map((space: any, index: number) => {
+                  return(
+                    <MenuItem key={index} value={space.id}>
+                      {/* @ts-ignore */}
+                      <Checkbox checked={hours.includes(space.id)} />
+                      {space.startTime > 12 ? space.startTime - 12 + ' PM' : space.startTime + ' AM'} - {space.endTime > 12 ? space.endTime - 12 + ' PM' : space.endTime + ' AM'}
+                    </MenuItem>
+                  )
+                })} 
+              </Select>
+            </div>
             <div className='flex flex-col justify-center items-start space-y-4'>
               <div className='flex gap-2'>
                 <BusinessIcon className='text-[#108A00]' /> Select Your State <span className='text-[#108A00]'>*</span>
@@ -78,62 +134,6 @@ export default function BookSection(){
                   )
                 })} 
               </Select>
-            </div>
-            <div className='flex flex-col justify-center items-start space-y-4'>
-              <div className='flex gap-2'>
-                <AccessTimeIcon className='text-[#108A00]' /> Select the Daily Use Hours <span className='text-[#108A00]'>*</span>
-              </div>
-              <Select
-                value={hours}
-                onChange={(e: any) => setHours(e.target.value)}
-                renderValue={(selected: any) => {
-                  let displayValue: string[] = []
-                  workspaceHours.forEach((space: any) => {
-                    if(selected.indexOf(space.id) > -1) {
-                      displayValue.push((space.startTime > 12 ? space.startTime - 12 + ' PM' : space.startTime + ' AM') + ' - ' + (space.endTime > 12 ? space.endTime - 12 + ' PM' : space.endTime + ' AM'))
-                }})
-                  return displayValue.join(', ')
-                }}
-                fullWidth
-                variant='standard'
-                multiple
-              >
-                <MenuItem value=''>
-                  <em>None</em>
-                </MenuItem>
-                {workspaceHours.map((space: any, index: number) => {
-                  return(
-                    <MenuItem key={index} value={space.id}>
-                      {/* @ts-ignore */}
-                      <Checkbox checked={hours.includes(space.id)} />
-                      {space.startTime > 12 ? space.startTime - 12 + ' PM' : space.startTime + ' AM'} - {space.endTime > 12 ? space.endTime - 12 + ' PM' : space.endTime + ' AM'}
-                    </MenuItem>
-                  )
-                })} 
-              </Select>
-            </div>
-            <div className='col-span-2'>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DateRangePicker
-                  value={selectedDates}
-                  onChange={(newValue) => setSelectedDates(newValue)}
-                  slotProps={{ 
-                    textField: { 
-                      variant: 'standard',
-                      title: 'Select Date Range',
-                      label: <div className='flex gap-2 dark:text-stone-100 text-stone-700 font-bold text-[1.3rem]' style={{ fontFamily: 'Poppins' }}>
-                        <CalendarTodayIcon className='text-[#108A00]' /> Select the Date Range <span className='text-[#108A00]'>*</span>
-                      </div>,
-                      InputProps: {
-                        style: {
-                          paddingTop: '1rem'
-                        }
-                      }
-                    },
-                    fieldSeparator: { children: '' }
-                  }}
-                />
-              </LocalizationProvider>
             </div>
             <div className='w-full flex items-end'>
               <Button

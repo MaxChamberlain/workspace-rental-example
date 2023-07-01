@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <motion.main 
       id='home-page' 
-      className="flex min-h-screen flex-col items-center justify-between bg-gradient-to-b from-slate-100 to-white"
+      className="flex min-h-screen flex-col items-center justify-between bg-gradient-to-b from-slate-100 to-white w-screen overflow-x-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -21,8 +21,8 @@ export default function Home() {
       <BookSection />
       <InfoSection />
       <OptionsSection />
-      <section className='w-full bg-zinc-800/95 py-14 flex flex-col items-center justify-center gap-8'>
-        <span className='font-bold text-5xl text-slate-100 text-center'>
+      <section className='w-full bg-zinc-800/95 py-14 flex flex-col items-center justify-center gap-8 px-8 xl:px-0'>
+        <span className='font-bold text-2xl lg:text-4xl xl:text-5xl text-slate-100 text-center'>
           Save big with our new <span className='text-[#108A00]'>discount</span> system!
         </span>
         <span className='font-normal text-2xl text-slate-100 text-center'>

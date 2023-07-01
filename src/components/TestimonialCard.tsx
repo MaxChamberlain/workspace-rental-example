@@ -12,11 +12,11 @@ export default function TestimonialCard({
     rating: number
 }){
     return(
-        <div className='p-14 bg-white drop-shadow-lg h-[24rem] rounded flex flex-col justify-between place-items-center w-[34rem]'>
+        <div className='p-14 bg-white drop-shadow-lg h-fit xl:h-[24rem] rounded flex flex-col justify-between place-items-center w-full xl:w-[34rem]'>
             <span className='text-2xl'>
                 &quot;{quote}&quot;
             </span>
-            <div className='flex justify-between items-center w-full mt-8'>
+            <div className='flex justify-between flex-col-reverse xl:flex-row items-center w-full mt-8'>
                 <div className='flex gap-2 items-center'>
                     <div className='w-16 h-16 overflow-hidden' style={{
                         borderRadius: '50%',
