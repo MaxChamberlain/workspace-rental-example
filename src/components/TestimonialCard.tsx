@@ -14,7 +14,7 @@ export default function TestimonialCard({
     return(
         <div className='p-14 bg-white drop-shadow-lg h-[24rem] rounded flex flex-col justify-between place-items-center w-[34rem]'>
             <span className='text-2xl'>
-                "{quote}"
+                &quot;{quote}&quot;
             </span>
             <div className='flex justify-between items-center w-full mt-8'>
                 <div className='flex gap-2 items-center'>

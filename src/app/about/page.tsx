@@ -39,7 +39,7 @@ export default function About() {
                         You book the office and your business starts
                     </span>
                     <span className='text-base text-zinc-800'>
-                        We believe your business begins and ends with the space in which it's conducted. That's why we provide great spaces for great prices, customized just for you.
+                        We believe your business begins and ends with the space in which it&apos;s conducted. That&apos;s why we provide great spaces for great prices, customized just for you.
                     </span>
                     <div className='w-full flex justify-between items-center'>
                         <div className='bg-white p-2 shadow rounded-xl text-center'>

@@ -95,13 +95,13 @@ export default function OptionsSection(){
                 </div>
                 <div className='w-full grid grid-cols-7 p-2 text-center'>
                     <span className='text-center col-span-2'>
-                        TV's
+                        TV&apos;s
                     </span>
                     <span className='text-center'>
                         |
                     </span>
                     <span className='text-center col-span-4'>
-                        {selectedRoom.tv} HDTV's
+                        {selectedRoom.tv} HDTV&apos;s
                     </span>
                 </div>
             </div>

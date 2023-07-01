@@ -11,10 +11,10 @@ export default function TestimonialSection(){
             Reviewed by People
         </span>
         <span className='font-bold text-5xl'>
-            Client's Testimonials
+            Client&apos;s Testimonials
         </span>
         <span className='text-base text-center max-w-xl'>
-            Discover the positive impact we've made on the our clients by reading through their testimonials. Our clients have experienced our service and results, and they're eager to share their positive experiences with you.
+            Discover the positive impact we&apos;ve made on the our clients by reading through their testimonials. Our clients have experienced our service and results, and they&apos;re eager to share their positive experiences with you.
         </span>
         <div className='flex justify-center w-full items-center gap-8 mt-24'>
             <TestimonialCard 
