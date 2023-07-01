@@ -1,5 +1,11 @@
+'use client'
+import Header from '@/components/Header'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import ThemeProvider from './ThemeProvider'
+import MuiXLicense from '@/components/MuiXLicense'
+import Footer from '@/components/Footer'
+import { AnimatePresence } from 'framer-motion'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +21,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <MuiXLicense />
+      <body className={inter.className}>
+        <Header />
+        <ThemeProvider>
+          <AnimatePresence mode='popLayout' onExitComplete={() => window.scrollTo(0, 0)}>
+            {children}
+          </AnimatePresence>
+        </ThemeProvider>
+        <Footer />
+      </body>
     </html>
   )
 }
